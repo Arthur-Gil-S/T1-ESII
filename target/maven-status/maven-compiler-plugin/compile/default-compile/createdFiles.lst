@@ -1,0 +1,6 @@
+pucrs\esii\Trabalho1\Entity\Student.class
+pucrs\esii\Trabalho1\Repository\StudentRepository.class
+pucrs\esii\Trabalho1\Trabalho1Application.class
+pucrs\esii\Trabalho1\Service\StudentService.class
+pucrs\esii\Trabalho1\Service\Imp\StudentServiceImp.class
+pucrs\esii\Trabalho1\Controller\StudentController.class
