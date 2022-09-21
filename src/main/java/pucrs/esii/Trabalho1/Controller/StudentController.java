@@ -38,4 +38,9 @@ public class StudentController {
         return studentService.insertStudent(student);
     }
 
+    // @GetMapping("/{name}")
+    // public ResponseEntity<List<Student>> getStudentByName(@PathVariable("name") String name){ // perguntar para o prof
+    //     return studentService.getStudentByName(name);
+    // }
+
 }

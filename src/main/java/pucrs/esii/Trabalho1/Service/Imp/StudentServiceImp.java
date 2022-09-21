@@ -3,7 +3,10 @@ package pucrs.esii.Trabalho1.Service.Imp;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import pucrs.esii.Trabalho1.Entity.Student;
 import pucrs.esii.Trabalho1.Repository.StudentRepository;
@@ -30,19 +33,13 @@ public class StudentServiceImp implements StudentService{
     }
 
     @Override
-    public Student findStudentByName(String name) {
-
-        // for (Student s : studentRepository) {
-        //     if(s.getName() == name){
-        //         return s;
-        //     }
-        // }
-        return null;
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
     }
 
     @Override
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
+    public ResponseEntity<List<Student>> getStudentByName(@PathVariable("name") String name){
+        return new ResponseEntity<List<Student>>(studentRepository.findByName(name), HttpStatus.OK);
     }
     
 }

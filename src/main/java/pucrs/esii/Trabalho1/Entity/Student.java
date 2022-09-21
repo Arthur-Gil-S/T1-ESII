@@ -25,6 +25,12 @@ public class Student {
     @Column(name = "adress")
     private String adress;
 
+    // @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    // @JoinTable(name = "V1__student_discipline", 
+    //         joinColumns = @JoinColumn(name = "student_reg", referencedColumnName = "registration"),
+    //         inverseJoinColumns = @JoinColumn(name = "disc_cod", referencedColumnName = "cod"))
+    // private List<Discipline> disciplines;
+
     public Student(){
         
     }
@@ -67,6 +73,10 @@ public class Student {
     public void setAdress(String adress) {
         this.adress = adress;
     }
+
+    // public List<Discipline> getDisciplines() {
+    //     return disciplines;
+    // }
 
     
 

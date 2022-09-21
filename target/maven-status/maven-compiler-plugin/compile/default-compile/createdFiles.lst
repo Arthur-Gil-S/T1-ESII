@@ -1,6 +1,11 @@
+pucrs\esii\Trabalho1\Repository\DisciplineRepository.class
 pucrs\esii\Trabalho1\Entity\Student.class
+pucrs\esii\Trabalho1\Service\DisciplineService.class
 pucrs\esii\Trabalho1\Repository\StudentRepository.class
 pucrs\esii\Trabalho1\Trabalho1Application.class
+pucrs\esii\Trabalho1\Controller\DisciplineController.class
 pucrs\esii\Trabalho1\Service\StudentService.class
 pucrs\esii\Trabalho1\Service\Imp\StudentServiceImp.class
 pucrs\esii\Trabalho1\Controller\StudentController.class
+pucrs\esii\Trabalho1\Entity\Discipline.class
+pucrs\esii\Trabalho1\Service\Imp\DisciplineServiceImp.class
