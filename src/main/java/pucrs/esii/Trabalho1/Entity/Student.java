@@ -1,10 +1,17 @@
 package pucrs.esii.Trabalho1.Entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,11 +32,11 @@ public class Student {
     @Column(name = "adress")
     private String adress;
 
-    // @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    // @JoinTable(name = "V1__student_discipline", 
-    //         joinColumns = @JoinColumn(name = "student_reg", referencedColumnName = "registration"),
-    //         inverseJoinColumns = @JoinColumn(name = "disc_cod", referencedColumnName = "cod"))
-    // private List<Discipline> disciplines;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "V1__student_discipline", 
+            joinColumns = @JoinColumn(name = "student_reg", referencedColumnName = "registration"),
+            inverseJoinColumns = @JoinColumn(name = "disc_cod", referencedColumnName = "cod"))
+    private List<Discipline> disciplines;
 
     public Student(){
         
@@ -74,9 +81,9 @@ public class Student {
         this.adress = adress;
     }
 
-    // public List<Discipline> getDisciplines() {
-    //     return disciplines;
-    // }
+    public List<Discipline> getDisciplines() {
+        return disciplines;
+    }
 
     
 

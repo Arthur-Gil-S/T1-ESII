@@ -8,6 +8,6 @@ import pucrs.esii.Trabalho1.Entity.Student;
 public interface DisciplineService {
     Discipline disciplineRegister(Discipline disc);
     List<Discipline> allDisciplines();
-    boolean studentRegister(Long reg, String cod, String grade);
+    boolean studentRegister(Long reg, String cod, Character grade);
     List<Student> consultStudents(String cod, String grade);
 }

@@ -33,11 +33,10 @@ public class DisciplineController {
         return disciplineService.allDisciplines();
     }
 
-    // perguntar para o prof
-    
-    // @PostMapping("/addStudent")
-    // public boolean addStudentIntoDisc(@RequestBody Map<Student, Discipline> json){
-    //     return disciplineService.studentRegister(json);
-    // }
+    // nao funciona
+    @PostMapping("/addStudent")
+    public boolean addStudentIntoDisc(@RequestBody Long reg, String cod, Character grade){
+        return disciplineService.studentRegister(reg, cod, grade);
+    }
     
 }

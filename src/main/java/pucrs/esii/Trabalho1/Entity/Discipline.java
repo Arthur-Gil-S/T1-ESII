@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.swing.text.StyledEditorKit.BoldAction;
 
 
 @Entity
@@ -26,8 +27,8 @@ public class Discipline {
     @Column(name = "class", nullable = false)
     private int classDisc;
 
-    // @ManyToMany(mappedBy = "disciplines")
-    // private List<Student> students;
+    @ManyToMany(mappedBy = "disciplines")
+    private List<Student> students;
 
     public Discipline(){
 
@@ -56,10 +57,9 @@ public class Discipline {
         return classDisc;
     }
 
-    // public List<Student> getStudents() {
-    //     return students;
-    // }
-    
-    
+    public List<Student> getStudents() {
+        return students;
+    }
+
 
 }

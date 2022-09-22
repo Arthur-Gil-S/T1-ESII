@@ -3,6 +3,7 @@ package pucrs.esii.Trabalho1.Controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,9 +39,10 @@ public class StudentController {
         return studentService.insertStudent(student);
     }
 
-    // @GetMapping("/{name}")
-    // public ResponseEntity<List<Student>> getStudentByName(@PathVariable("name") String name){ // perguntar para o prof
-    //     return studentService.getStudentByName(name);
-    // }
+    // erro Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long
+    @GetMapping("/{name}")
+    public ResponseEntity<List<Student>> getStudentByName(@PathVariable("name") String name){
+        return studentService.getStudentByName(name);
+    }
 
 }
