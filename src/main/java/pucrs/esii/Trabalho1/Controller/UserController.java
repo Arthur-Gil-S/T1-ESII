@@ -15,9 +15,7 @@ import pucrs.esii.Trabalho1.Service.UserService;
 
 @RestController
 @RequestMapping("/user")
-public class UserController {
-
-    public static boolean logged = false;
+public class UserController extends Logp{
 
     private final UserService userService;
 
@@ -32,6 +30,9 @@ public class UserController {
 
     @GetMapping("/{registration}")
     public Optional<User> findUserByReg(@PathVariable("registration") Long registration){
+        if(logged== false){
+            return null;
+        }
         return userService.findUserByReg(registration);
     }
 
@@ -48,9 +49,9 @@ public class UserController {
 
     @PostMapping
     public User addUser(@RequestBody User user){
+        if(logged == false){
+            return null;
+        }
         return userService.insertUser(user);
     }
-
-
-
 }

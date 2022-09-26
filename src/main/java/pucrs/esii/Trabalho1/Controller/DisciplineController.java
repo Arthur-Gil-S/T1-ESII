@@ -15,9 +15,10 @@ import pucrs.esii.Trabalho1.Service.DisciplineService;
 
 @RestController
 @RequestMapping("/discipline")
-public class DisciplineController {
+public class DisciplineController extends Logp{
 
     private final DisciplineService disciplineService;
+
 
     public DisciplineController(DisciplineService disciplineService) {
         this.disciplineService = disciplineService;
@@ -25,19 +26,18 @@ public class DisciplineController {
 
     @PostMapping
     public Discipline addDiscipline(@RequestBody Discipline disc){
+        if(logged == false){
+            return null;
+        }
         return disciplineService.disciplineRegister(disc);
     }
 
     @GetMapping()
     public List<Discipline> findAllDisciplines(){
+        if(logged == false){
+            return null;
+        }
         return disciplineService.allDisciplines();
     }
 
-    // perguntar para o prof
-    
-    // @PostMapping("/addStudent")
-    // public boolean addStudentIntoDisc(@RequestBody Map<Student, Discipline> json){
-    //     return disciplineService.studentRegister(json);
-    // }
-    
 }

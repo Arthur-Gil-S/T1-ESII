@@ -10,6 +10,7 @@ pucrs\esii\Trabalho1\Controller\UserController.class
 pucrs\esii\Trabalho1\Entity\Discipline.class
 pucrs\esii\Trabalho1\Service\Imp\DisciplineServiceImp.class
 pucrs\esii\Trabalho1\Entity\Student.class
+pucrs\esii\Trabalho1\Controller\Logp.class
 pucrs\esii\Trabalho1\Service\DisciplineService.class
 pucrs\esii\Trabalho1\Repository\UserRepository.class
 pucrs\esii\Trabalho1\Controller\StudentController.class
