@@ -41,5 +41,17 @@ public class UserServiceImp implements UserService{
     public ResponseEntity<List<User>> getUserByName(@PathVariable("name") String name){
         return new ResponseEntity<List<User>>(userRepository.findByName(name), HttpStatus.OK);
     }
+
+    @Override
+    public boolean findUserByEmail(String email) {
+        List<User> users = userRepository.findAll();
+        for (User a : users) {
+            String aMail = a.getEmail();
+            if(aMail == email){
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

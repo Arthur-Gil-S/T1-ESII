@@ -73,11 +73,4 @@ public class User {
     public void setPass(String pass) {
         this.pass = pass;
     }
-
-    // public List<Discipline> getDisciplines() {
-    //     return disciplines;
-    // }
-
-    
-
 }

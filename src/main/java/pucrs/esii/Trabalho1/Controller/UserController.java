@@ -33,10 +33,14 @@ public class UserController {
         return userService.findUserByReg(registration);
     }
 
-    @GetMapping("/login")
-    public User login(@RequestBody User user){
-        
-        return user;
+    // @GetMapping("/login")
+    // public User login(@RequestBody User user){  
+    //     return user;
+    // }
+
+    @GetMapping("/{login}")
+    public boolean login(@PathVariable("email") String email){
+        return userService.findUserByEmail(email);
     }
 
     @PostMapping
@@ -44,9 +48,6 @@ public class UserController {
         return userService.insertUser(user);
     }
 
-    // @GetMapping("/{name}")
-    // public ResponseEntity<List<User>> getUserByName(@PathVariable("name") String name){
-    //     return userService.getUserByName(name);
-    // }
+
 
 }

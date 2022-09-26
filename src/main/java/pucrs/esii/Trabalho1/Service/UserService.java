@@ -14,4 +14,5 @@ public interface UserService {
     Optional<User> findUserByReg(Long registration);
     public ResponseEntity<List<User>> getUserByName(@RequestParam String name);
     List<User> getAllUsers();
+    boolean findUserByEmail(String email);
 }
