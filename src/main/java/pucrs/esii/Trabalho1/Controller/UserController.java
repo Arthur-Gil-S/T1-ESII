@@ -33,14 +33,11 @@ public class UserController {
         return userService.findUserByReg(registration);
     }
 
-    // @GetMapping("/login")
-    // public User login(@RequestBody User user){  
-    //     return user;
-    // }
 
-    @GetMapping("/{login}")
-    public boolean login(@PathVariable("email") String email){
-        return userService.findUserByEmail(email);
+
+    @GetMapping("/login")
+    public boolean login(@RequestBody String email, String pass){
+        return userService.findUserByEmail(email, pass);
     }
 
     @PostMapping

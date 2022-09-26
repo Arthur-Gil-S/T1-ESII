@@ -43,12 +43,21 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public boolean findUserByEmail(String email) {
+    public boolean findUserByEmail(String email, String pass) {
         List<User> users = userRepository.findAll();
+        System.out.println("AAAAAAAAAAAAAAAAA");
+        System.out.println(users);
         for (User a : users) {
+
             String aMail = a.getEmail();
+            String aPass = a.getPass();
+
+            // System.out.println(aMail, aPass);
+
             if(aMail == email){
-                return true;
+                if(aPass == pass){
+                    return true;
+                }
             }
         }
         return false;
