@@ -36,8 +36,8 @@ public class UserController {
 
 
     @GetMapping("/login")
-    public boolean login(@RequestBody String email, String pass){
-        return userService.findUserByEmail(email, pass);
+    public boolean login(@RequestBody String emailSenha){
+        return userService.findUserByEmail(emailSenha);
     }
 
     @PostMapping

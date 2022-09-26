@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import pucrs.esii.Trabalho1.Entity.User;
 import pucrs.esii.Trabalho1.Repository.UserRepository;
 import pucrs.esii.Trabalho1.Service.UserService;
+import java.util.regex.*;
 
 @Service
 public class UserServiceImp implements UserService{
@@ -43,21 +44,37 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    public boolean findUserByEmail(String email, String pass) {
+    public boolean findUserByEmail(String emailSenha) {
         List<User> users = userRepository.findAll();
-        System.out.println("AAAAAAAAAAAAAAAAA");
-        System.out.println(users);
-        for (User a : users) {
+        System.out.println("AAAAAAAAAAAAAAAAB");
+        String email = "";
+        String pass = "";
 
+        Pattern regexMail = Pattern.compile("(?<=\"email\": \")(.+)(?=\",)");
+        Matcher matcherMail = regexMail.matcher(emailSenha);
+    
+        while (matcherMail.find()) {
+            email = matcherMail.group(1);
+        }
+        Pattern regexPass = Pattern.compile("(?<=\"pass\": \")(.+)(?=\")");
+        Matcher matcherPass = regexPass.matcher(emailSenha);
+    
+        while (matcherPass.find()) {
+            pass = matcherPass.group(1);
+        }
+
+
+        System.out.println(email);
+        System.out.println(pass);
+        String email1 = email;
+        String pass1 = pass;
+        
+        for (User a : users) {
             String aMail = a.getEmail();
             String aPass = a.getPass();
 
-            // System.out.println(aMail, aPass);
-
-            if(aMail == email){
-                if(aPass == pass){
-                    return true;
-                }
+            if(email1.equals(aMail) && pass1.equals(aPass)){
+                return true;
             }
         }
         return false;
