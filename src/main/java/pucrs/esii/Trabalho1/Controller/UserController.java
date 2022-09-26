@@ -16,7 +16,9 @@ import pucrs.esii.Trabalho1.Service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    
+
+    public static boolean logged = false;
+
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -34,10 +36,14 @@ public class UserController {
     }
 
 
-
     @GetMapping("/login")
     public boolean login(@RequestBody String emailSenha){
-        return userService.findUserByEmail(emailSenha);
+        if(userService.findUserByEmail(emailSenha)){
+            logged = true;
+        } else {
+            logged = false;
+        }
+        return logged;
     }
 
     @PostMapping

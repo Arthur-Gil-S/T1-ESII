@@ -46,7 +46,6 @@ public class UserServiceImp implements UserService{
     @Override
     public boolean findUserByEmail(String emailSenha) {
         List<User> users = userRepository.findAll();
-        System.out.println("AAAAAAAAAAAAAAAAB");
         String email = "";
         String pass = "";
 
@@ -65,7 +64,6 @@ public class UserServiceImp implements UserService{
 
 
         System.out.println(email);
-        System.out.println(pass);
         String email1 = email;
         String pass1 = pass;
         
